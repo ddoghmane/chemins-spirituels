@@ -4,17 +4,23 @@ import 'imam_detail_page.dart';
 class ImamsPage extends StatelessWidget {
   const ImamsPage({super.key});
 
-  static const List<String> imams = [
-    "Abou Hanifa",
-    "Malik ibn Anas",
-    "Al-Shafi'i",
-    "Ahmad ibn Hanbal",
-    "Ibn Arabi",
-    "Al-Ghazali",
-    "Ibn Ajiba",
-    "Ibn Ata Allah",
-  ];
+static const List<String> imams = [
+  "Abou Hanifa",
+  "Malik ibn Anas",
+  "Al-Shafi'i",
+  "Ahmad ibn Hanbal",
+  "Ibn Arabi",
+  "Al-Ghazali",
+  "Ibn Ajiba",
+  "Ibn Ata Allah",
 
+  "Jean le Baptiste",
+  "Jean l'Apôtre",
+  "Paul de Tarse",
+  "Pierre",
+  "Augustin d'Hippone",
+  "François d'Assise",
+];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
