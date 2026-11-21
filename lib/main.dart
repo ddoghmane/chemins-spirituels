@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/imams_page.dart';
+import 'pages/favorites_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      home: const ImamsPage(),
+home: const ImamsPage(),
     );
   }
 }

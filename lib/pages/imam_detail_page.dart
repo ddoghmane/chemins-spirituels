@@ -31,13 +31,13 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
     try {
       final imamRes = await http.get(
         Uri.parse(
-          "http://localhost:4000/api/imams/${Uri.encodeComponent(widget.imam)}",
+          "http://localhost:3000/api/imams/${Uri.encodeComponent(widget.imam)}",
         ),
       );
 
       final invocationsRes = await http.get(
         Uri.parse(
-          "http://localhost:4000/api/invocations/sheikh/${Uri.encodeComponent(widget.imam)}",
+          "http://localhost:3000/api/invocations/sheikh/${Uri.encodeComponent(widget.imam)}",
         ),
       );
 
@@ -53,6 +53,8 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
         loading = false;
       });
     } catch (e) {
+      print(e);
+
       setState(() {
         loading = false;
       });
@@ -90,7 +92,6 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF101010),
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -104,7 +105,6 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
           ),
         ),
       ),
-
       body: loading
           ? const Center(
               child: CircularProgressIndicator(
@@ -124,8 +124,7 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                       child: Padding(
                         padding: const EdgeInsets.all(20),
                         child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               imamInfo!["nom"] ?? "",
@@ -135,46 +134,36 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
                             const SizedBox(height: 15),
-
                             infoTile(
                               "Surnom",
                               imamInfo!["surnom"] ?? "",
                             ),
-
                             infoTile(
                               "Naissance",
                               "${imamInfo!["naissance"] ?? ""}",
                             ),
-
                             infoTile(
                               "Décès",
                               "${imamInfo!["deces"] ?? ""}",
                             ),
-
                             infoTile(
                               "Pays",
                               imamInfo!["pays"] ?? "",
                             ),
-
                             infoTile(
                               "Doctrine",
                               imamInfo!["doctrine"] ?? "",
                             ),
-
                             infoTile(
                               "Idée principale",
                               imamInfo!["idee_principale"] ?? "",
                             ),
-
                             infoTile(
                               "Œuvre majeure",
                               imamInfo!["oeuvre_majeure"] ?? "",
                             ),
-
                             const SizedBox(height: 20),
-
                             const Text(
                               "Biographie",
                               style: TextStyle(
@@ -183,9 +172,7 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
                             const SizedBox(height: 12),
-
                             Text(
                               imamInfo!["biographie"] ?? "",
                               style: const TextStyle(
@@ -198,7 +185,6 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                         ),
                       ),
                     ),
-
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child: Text(
@@ -210,25 +196,7 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                       ),
                     ),
                   ),
-
                   ...invocations.map((inv) {
-                    final titre =
-                        inv["titre"] ?? "Invocation";
-
-                    final arabe =
-                        inv["arabe"] ?? "";
-
-                    final phonetique =
-                        inv["phonetique"] ??
-                        inv["phonétique"] ??
-                        inv["phonetic"] ??
-                        "";
-
-                    final traduction =
-                        inv["francais"] ??
-                        inv["traduction"] ??
-                        "";
-
                     return Card(
                       color: const Color(0xFF1B1B1B),
                       margin: const EdgeInsets.symmetric(
@@ -245,18 +213,16 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                               CrossAxisAlignment.start,
                           children: [
                             Text(
-                              titre,
+                              inv["titre"] ?? "Invocation",
                               style: const TextStyle(
                                 color: Color(0xFFE0C084),
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
                             const SizedBox(height: 15),
-
                             Text(
-                              arabe,
+                              inv["arabe"] ?? "",
                               textDirection: TextDirection.rtl,
                               style: const TextStyle(
                                 color: Colors.white,
@@ -264,23 +230,24 @@ class _ImamDetailPageState extends State<ImamDetailPage> {
                                 height: 1.8,
                               ),
                             ),
-
                             const Divider(
                               color: Color(0xFFE0C084),
                             ),
-
                             Text(
-                              phonetique,
+                              inv["phonetique"] ??
+                                  inv["phonétique"] ??
+                                  inv["phonetic"] ??
+                                  "",
                               style: const TextStyle(
                                 color: Colors.white70,
                                 fontStyle: FontStyle.italic,
                               ),
                             ),
-
                             const SizedBox(height: 10),
-
                             Text(
-                              traduction,
+                              inv["francais"] ??
+                                  inv["traduction"] ??
+                                  "",
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,

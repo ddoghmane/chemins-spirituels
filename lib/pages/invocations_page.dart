@@ -25,10 +25,9 @@ class _InvocationsPageState extends State<InvocationsPage> {
   }
 
   Future<void> fetchInvocations() async {
-    final uri = Uri.parse(
-      "http://localhost:4000/api/invocations/sheikh/${Uri.encodeComponent(widget.imam)}",
-    );
-
+final uri = Uri.parse(
+  "http://localhost:3000/api/invocations/sheikh/${Uri.encodeComponent(widget.imam)}",
+);
     final res = await http.get(uri);
 
     if (res.statusCode == 200) {
@@ -47,7 +46,6 @@ class _InvocationsPageState extends State<InvocationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF101010),
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -61,7 +59,6 @@ class _InvocationsPageState extends State<InvocationsPage> {
           ),
         ),
       ),
-
       body: loading
           ? const Center(
               child: CircularProgressIndicator(
@@ -83,85 +80,49 @@ class _InvocationsPageState extends State<InvocationsPage> {
                   itemBuilder: (context, index) {
                     final inv = invocations[index];
 
-                    final titre =
-                        inv["titre"] ??
-                        "Invocation";
-
-                    final arabe =
-                        inv["arabe"] ??
-                        "";
-
-                    final phonetique =
-                        inv["phonetique"] ??
-                        inv["phonétique"] ??
-                        inv["phonetic"] ??
-                        "";
-
-                    final traduction =
-                        inv["francais"] ??
-                        inv["traduction"] ??
-                        "";
-
                     return Card(
                       color: const Color(0xFF1B1B1B),
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      elevation: 6,
+                      margin: const EdgeInsets.all(12),
                       child: Padding(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(16),
                         child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              titre,
+                              inv["titre"] ?? "Invocation",
                               style: const TextStyle(
                                 color: Color(0xFFE0C084),
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
-                            const SizedBox(height: 18),
-
+                            const SizedBox(height: 15),
                             Text(
-                              arabe,
-                              textDirection:
-                                  TextDirection.rtl,
+                              inv["arabe"] ?? "",
+                              textDirection: TextDirection.rtl,
                               style: const TextStyle(
-                                fontSize: 28,
+                                fontSize: 26,
                                 color: Colors.white,
-                                height: 1.8,
                               ),
                             ),
-
-                            const Divider(
-                              color: Color(0xFFE0C084),
-                              height: 30,
-                            ),
-
+                            const SizedBox(height: 15),
                             Text(
-                              phonetique,
+                              inv["phonetique"] ??
+                                  inv["phonétique"] ??
+                                  inv["phonetic"] ??
+                                  "",
                               style: const TextStyle(
                                 color: Colors.white70,
-                                fontSize: 16,
                                 fontStyle: FontStyle.italic,
                               ),
                             ),
-
-                            const SizedBox(height: 14),
-
+                            const SizedBox(height: 15),
                             Text(
-                              traduction,
+                              inv["francais"] ??
+                                  inv["traduction"] ??
+                                  "",
                               style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 16,
-                                height: 1.5,
                               ),
                             ),
                           ],
