@@ -1,87 +1,130 @@
-📿 Invocations des Imams
-Application Flutter permettant de consulter des invocations spirituelles de plusieurs imams et cheikhs.
+🌿 Chemins Spirituels
+Chemins Spirituels est une application Flutter permettant de découvrir des maîtres spirituels, leurs enseignements, leurs biographies et des invocations issues de différentes traditions.
 
-L'application propose les invocations en arabe, en phonétique et en français à travers une interface sombre inspirée de l'univers spirituel et mystique.
+L'objectif du projet est de favoriser la découverte, la réflexion et la compréhension entre différentes sensibilités spirituelles à travers des figures historiques marquantes.
 
 ✨ Fonctionnalités
-✅ Liste de plusieurs imams
+✅ Consultation de biographies de maîtres spirituels
 
-✅ Consultation des invocations
+✅ Invocations associées à chaque personnage
 
-✅ Texte arabe
+✅ Tradition islamique
 
-✅ Transcription phonétique
+✅ Tradition chrétienne
 
-✅ Traduction française
+✅ Interface Flutter moderne
 
-✅ Interface sombre personnalisée
+✅ Backend Node.js / Express
 
-✅ Navigation entre les différentes pages
+✅ Base de données MongoDB
+
+✅ Navigation simple et intuitive
+
+🌍 Vision du projet
+Chemins Spirituels n'a pas pour objectif de comparer ou d'opposer les traditions.
+
+L'application cherche au contraire à mettre en lumière les enseignements, les aspirations spirituelles et les valeurs de figures reconnues de différentes traditions afin de favoriser la connaissance mutuelle et le dialogue.
+
+📚 Personnages présents
+
+Tradition islamique
+
+Abou Hanifa
+Malik ibn Anas
+Al-Shafi'i
+Ahmad ibn Hanbal
+Al-Ghazali
+Ibn Arabi
+Ibn Ata Allah
+Ibn Ajiba
+Sahl ibn Abd Allah at-Tustari
+Abu Talib al-Makki
+Abu al-Qasim al-Junayd
+Abu Uthman Sa'id al-Hiri
+
+Tradition chrétienne
+
+Jean le Baptiste
+Jean l'Apôtre
+Paul de Tarse
+Pierre
+Augustin d'Hippone
+François d'Assise
 
 🛠 Technologies utilisées
+
 Frontend
 Flutter
 Dart
 Material Design
+
 Backend
+
 Node.js
 Express.js
+
 Base de données
 MongoDB
 
-📂 Structure des données
-Chaque invocation est stockée sous la forme suivante :
-
-{
-  "imam": "Nom de l'imam",
-  "arabe": "النص العربي",
-  "phonetique": "Texte phonétique",
-  "francais": "Traduction française"
-}
-
-🔄 Architecture du projet
+🔄 Architecture
 Flutter
-    ↓
-API Node.js / Express
-    ↓
+   │
+   ▼
+Node.js / Express
+   │
+   ▼
 MongoDB
-Flutter affiche les données.
-Node.js fournit l'API.
-MongoDB stocke les invocations.
+Flutter affiche les données
+Express fournit l'API REST
+MongoDB stocke les biographies et les invocations
+
+📸 Captures d'écran
+## 📸 Captures d'écran
+
+### Accueil
+
+![Accueil](screenshots/home.png)
+
+---
+
+### Ibn Ajiba
+
+![Ibn Ajiba](screenshots/ibn-ajiba.png)
+
+---
+
+### Jean l'Apôtre
+
+![Jean l'Apôtre](screenshots/jean-apotre.png)
 
 🚀 Installation
-Cloner le projet
-git clone https://github.com/ddoghmane/flutter-invocations-imams.git
+
 Frontend Flutter
 flutter pub get
 flutter run
+
 Backend Node.js
+cd backend-nodejs
 npm install
-npm start
+node server.js
 
-📸 Captures d'écran
-Accueil
-Ajouter une capture d'écran ici
-
-Liste des invocations
-Ajouter une capture d'écran ici
-
-🎯 Objectifs du projet
-Ce projet m'a permis de découvrir :
+🎯 Objectifs pédagogiques
+Ce projet m'a permis de pratiquer :
 
 Flutter
 Dart
 MongoDB
 Node.js
+Express
 Git et GitHub
-Le développement mobile multiplateforme
-
+API REST
+Développement mobile multiplateforme
 👨‍💻 Auteur
 Daoud Doghmane
 
-Projet personnel réalisé dans le cadre de l'apprentissage du développement mobile et du développement full stack.
+Projet personnel réalisé dans le cadre de l'apprentissage du développement full-stack et du développement mobile.
 
 GitHub : https://github.com/ddoghmane
 
 📜 Licence
-Projet éducatif à but non commercial.
+Projet éducatif et personnel.
