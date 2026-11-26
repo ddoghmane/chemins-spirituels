@@ -99,6 +99,88 @@ MongoDB stocke les biographies et les invocations
 
 🚀 Installation
 
+## 🗄️ Base de données MongoDB
+
+L'application utilise une base MongoDB nommée :
+
+```text
+chemins_spirituels
+```
+
+Les données sont fournies dans les fichiers :
+
+```text
+database/imams.json
+database/invocations.json
+```
+
+### Importer les données
+
+Créer la base puis importer les collections :
+
+```bash
+mongoimport \
+--db chemins_spirituels \
+--collection imams \
+--file database/imams.json \
+--jsonArray
+```
+
+```bash
+mongoimport \
+--db chemins_spirituels \
+--collection invocations \
+--file database/invocations.json \
+--jsonArray
+```
+
+### Vérifier l'import
+
+```bash
+mongosh
+```
+
+```javascript
+use chemins_spirituels
+
+db.imams.countDocuments()
+
+db.invocations.countDocuments()
+```
+
+### Exporter les données
+
+Exporter les collections au format JSON :
+
+```bash
+mongoexport \
+--db chemins_spirituels \
+--collection imams \
+--out imams.json
+```
+
+```bash
+mongoexport \
+--db chemins_spirituels \
+--collection invocations \
+--out invocations.json
+```
+
+### Sauvegarde complète
+
+Exporter toute la base :
+
+```bash
+mongodump --db chemins_spirituels --out backup
+```
+
+Restaurer la sauvegarde :
+
+```bash
+mongorestore backup
+```
+
+
 Frontend Flutter
 flutter pub get
 flutter run
